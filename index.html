@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clear Ar | Limpeza de Ar-Condicionado</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: Inter, Arial, sans-serif;
+        background: #f7fafc;
+        color: #1f2937;
+      }
+
+      .page {
+        min-height: 100vh;
+      }
+
+      .hero {
+        background: linear-gradient(135deg, #0f172a, #1d4ed8);
+        color: white;
+        padding: 24px 20px 80px;
+      }
+
+      .nav {
+        max-width: 1180px;
+        margin: 0 auto 56px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 800;
+      }
+
+      .logo span {
+        color: #93c5fd;
+      }
+
+      .nav-cta {
+        color: white;
+        text-decoration: none;
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        padding: 12px 18px;
+        border-radius: 999px;
+      }
+
+      .hero-content {
+        max-width: 1180px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 32px;
+        align-items: center;
+      }
+
+      .badge {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.14);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        padding: 8px 14px;
+        border-radius: 999px;
+        font-size: 0.9rem;
+        margin-bottom: 18px;
+      }
+
+      .hero-text h1 {
+        font-size: clamp(2rem, 5vw, 4rem);
+        line-height: 1.05;
+        margin: 0 0 18px;
+      }
+
+      .hero-text p {
+        font-size: 1.05rem;
+        line-height: 1.7;
+        max-width: 650px;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin: 28px 0;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 22px;
+        border-radius: 14px;
+        text-decoration: none;
+        font-weight: 700;
+        border: none;
+        cursor: pointer;
+        transition: 0.2s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+      }
+
+      .btn-primary {
+        background: #ffffff;
+        color: #1d4ed8;
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+      }
+
+      .full {
+        width: 100%;
+      }
+
+      .hero-info {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 10px;
+        color: rgba(255, 255, 255, 0.95);
+      }
+
+      .hero-card .card {
+        background: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 24px;
+        padding: 28px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+      }
+
+      .hero-card h3 {
+        margin-top: 0;
+        font-size: 1.4rem;
+      }
+
+      .hero-card p {
+        color: rgba(255, 255, 255, 0.9);
+        line-height: 1.7;
+      }
+
+      .card-list {
+        display: grid;
+        gap: 16px;
+        margin-top: 22px;
+      }
+
+      .card-list div {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding: 14px;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .section {
+        padding: 78px 20px;
+      }
+
+      .section-title {
+        max-width: 780px;
+        margin: 0 auto 42px;
+        text-align: center;
+      }
+
+      .section-title span,
+      .contact-box span {
+        display: inline-block;
+        color: #2563eb;
+        font-weight: 700;
+        margin-bottom: 12px;
+      }
+
+      .section-title h2,
+      .contact-box h2 {
+        font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+        margin: 0 0 12px;
+      }
+
+      .section-title p,
+      .contact-box p {
+        color: #4b5563;
+        line-height: 1.7;
+      }
+
+      .grid {
+        max-width: 1180px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+      }
+
+      .service-card,
+      .benefit-item,
+      .testimonial-box,
+      .contact-box {
+        background: white;
+        border-radius: 24px;
+        box-shadow: 0 15px 40px rgba(15, 23, 42, 0.07);
+      }
+
+      .service-card {
+        padding: 28px;
+      }
+
+      .icon {
+        width: 56px;
+        height: 56px;
+        display: grid;
+        place-items: center;
+        border-radius: 16px;
+        background: #eff6ff;
+        font-size: 1.5rem;
+        margin-bottom: 18px;
+      }
+
+      .service-card h3,
+      .benefit-item h3 {
+        margin: 0 0 12px;
+      }
+
+      .service-card p,
+      .benefit-item p {
+        margin: 0;
+        color: #4b5563;
+        line-height: 1.7;
+      }
+
+      .benefits-wrap {
+        max-width: 1180px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+      }
+
+      .benefit-item {
+        padding: 26px;
+      }
+
+      .testimonial {
+        padding-top: 0;
+      }
+
+      .testimonial-box {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 34px;
+        text-align: center;
+      }
+
+      .quote {
+        font-size: 4rem;
+        line-height: 1;
+        color: #2563eb;
+      }
+
+      .testimonial-box p {
+        font-size: 1.15rem;
+        line-height: 1.8;
+        color: #374151;
+        margin: 0 0 16px;
+      }
+
+      .contact-box {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 32px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+        align-items: center;
+      }
+
+      .whatsapp-box {
+        text-align: center;
+      }
+
+      .whatsapp-action {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @media (max-width: 960px) {
+        .hero-content,
+        .grid,
+        .benefits-wrap,
+        .contact-box {
+          grid-template-columns: 1fr;
+        }
+
+        .nav {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .hero {
+          padding-bottom: 56px;
+        }
+
+        .section {
+          padding: 56px 16px;
+        }
+
+        .hero-card .card,
+        .service-card,
+        .benefit-item,
+        .testimonial-box,
+        .contact-box {
+          padding: 22px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <nav class="nav">
+          <div class="logo">Clear<span>Ar</span></div>
+          <a href="#contato" class="nav-cta">Solicitar orçamento</a>
+        </nav>
+
+        <div class="hero-content">
+          <div class="hero-text">
+            <span class="badge">Atendimento rápido e profissional</span>
+            <h1>Limpeza de ar-condicionado com mais qualidade para sua casa ou empresa</h1>
+            <p>
+              Higienização completa, eliminação de odores, melhora da eficiência do aparelho
+              e mais conforto para o seu ambiente.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#contato" class="btn btn-primary">Pedir orçamento</a>
+              <a href="#servicos" class="btn btn-secondary">Ver serviços</a>
+            </div>
+
+            <ul class="hero-info">
+              <li>✅ Atendimento residencial e comercial</li>
+              <li>✅ Agendamento flexível</li>
+              <li>✅ Equipe especializada</li>
+            </ul>
+          </div>
+
+          <div class="hero-card">
+            <div class="card">
+              <h3>Por que limpar seu ar-condicionado?</h3>
+              <p>
+                A limpeza periódica ajuda a reduzir poeira, mofo, mau cheiro e ainda melhora
+                o desempenho do aparelho, aumentando sua durabilidade.
+              </p>
+              <div class="card-list">
+                <div>
+                  <strong>+ Saúde</strong>
+                  <span>Ar mais limpo para sua família</span>
+                </div>
+                <div>
+                  <strong>+ Economia</strong>
+                  <span>Melhor eficiência energética</span>
+                </div>
+                <div>
+                  <strong>+ Durabilidade</strong>
+                  <span>Menos desgaste no equipamento</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="section services" id="servicos">
+          <div class="section-title">
+            <span>Serviços</span>
+            <h2>O que fazemos</h2>
+            <p>
+              Trabalhamos com limpeza preventiva e higienização para manter seu aparelho funcionando melhor.
+            </p>
+          </div>
+
+          <div class="grid">
+            <article class="service-card">
+              <div class="icon">🧼</div>
+              <h3>Limpeza completa</h3>
+              <p>Remoção de sujeira, poeira e resíduos acumulados nas partes internas do aparelho.</p>
+            </article>
+
+            <article class="service-card">
+              <div class="icon">🌬️</div>
+              <h3>Higienização</h3>
+              <p>Aplicação de limpeza para reduzir odores e melhorar a qualidade do ar no ambiente.</p>
+            </article>
+
+            <article class="service-card">
+              <div class="icon">⚙️</div>
+              <h3>Manutenção preventiva</h3>
+              <p>Avaliação básica do equipamento para identificar sinais de desgaste e evitar falhas.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section benefits">
+          <div class="section-title">
+            <span>Vantagens</span>
+            <h2>Benefícios da limpeza regular</h2>
+          </div>
+
+          <div class="benefits-wrap">
+            <div class="benefit-item">
+              <h3>Ar mais saudável</h3>
+              <p>Ajuda a diminuir poeira, fungos e mau cheiro, trazendo mais bem-estar no dia a dia.</p>
+            </div>
+
+            <div class="benefit-item">
+              <h3>Melhor desempenho</h3>
+              <p>Com o aparelho limpo, a climatização tende a ficar mais eficiente e uniforme.</p>
+            </div>
+
+            <div class="benefit-item">
+              <h3>Mais economia</h3>
+              <p>Um equipamento limpo pode trabalhar com menos esforço e consumir menos energia.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section testimonial">
+          <div class="testimonial-box">
+            <span class="quote">“</span>
+            <p>
+              Serviço excelente. O ar ficou com cheiro de novo e gelando muito melhor.
+              Atendimento rápido e muito caprichoso.
+            </p>
+            <strong>Cliente satisfeito</strong>
+          </div>
+        </section>
+
+        <section class="section contact" id="contato">
+          <div class="contact-box whatsapp-box">
+            <div>
+              <span>Fale conosco</span>
+              <h2>Solicite seu orçamento agora</h2>
+              <p>
+                Entre em contato pelo WhatsApp para agendar sua limpeza de ar-condicionado de forma rápida e prática.
+              </p>
+            </div>
+
+            <div class="whatsapp-action">
+              <a
+                href="https://wa.me/554896614515"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-primary full"
+              >
+                Chamar no WhatsApp
+              </a>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
